@@ -46,7 +46,7 @@ console.log('Problem 1:')
 const firstWhigPresident = presidents.find((president) =>{
   return president.party === 'Whig'
 })
-console.log(firstWhigPresident)
+// console.log(firstWhigPresident)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -76,7 +76,7 @@ const presidentsNamedJames = presidents.filter((president) => {
   return president.president.split(' ')[0] === 'James'
 })
 //console log result - works!
-console.log(presidentsNamedJames)
+// console.log(presidentsNamedJames)
 
 
 
@@ -110,7 +110,7 @@ console.log('Problem 3:')
 const presidentialParties = presidents.map((president) => {
   return president.party
 })
-console.log(presidentialParties)
+// console.log(presidentialParties)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -140,7 +140,7 @@ const presidentsBetween1850and1900 = presidents.filter((president) => {
   (parseInt(president.took_office.slice(0, 4)) < 1900)
 })
 //check the result- it works!
-console.log(presidentsBetween1850and1900)
+// console.log(presidentsBetween1850and1900)
 
 // Add your code above this line
 
@@ -168,7 +168,7 @@ console.log('Problem 5:')
 const livingPresidents = presidents.filter((president) => {
  return president.death_year === null
 })
-console.log(livingPresidents)
+// console.log(livingPresidents)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -195,10 +195,10 @@ console.log('Problem 6:')
 const firstRepublicanAttributes = presidents.find((president) => {
   //get the first president
   return president.party === 'Republican'
-})
   //extract the first Republican's name using .president
+})
 const firstRepublican = firstRepublicanAttributes.president
-console.log(firstRepublican)
+// console.log(firstRepublican)
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -234,7 +234,7 @@ const shortTermPresidents = noMoreTrump.filter((president) => {
   //subtract the value of when the president took office to when they left office, only log the presidents that that number is less than 4 for
   return (parseInt(president.left_office.slice(0, 4)) - parseInt(president.took_office.slice(0,4))) < 4
 })
-console.log(shortTermPresidents)
+// console.log(shortTermPresidents)
 
 
 
@@ -270,28 +270,42 @@ const presidentFirstName = presidents.map((president) => {
 // check result- it works!
 // console.log(presidentFirstName)
 
-function presidentFirstNameCounter (name) {
+// using a function- not the best way to do it
+// function presidentFirstNameCounter (name) {
+//
+//   return presidentFirstName.reduce((nameCount, name) => {
+//     if (nameCount[name] === undefined) {
+//       // name does not exist in presObj
+//       nameCount[name] = 1
+//     } else {
+//       // when name already exists in presObj
+//       nameCount[name] += 1
+//     }
+//
+//     return nameCount
+//   }, {})
+// }
+// // check to see if function works, it does
+// // console.log(presidentFirstNameCounter())
+//
+// //create variable named firstNameCount
+// const firstNameCount = presidentFirstNameCounter()
+//
+// console.log(firstNameCount)
 
-  return presidentFirstName.reduce((nameCount, name) => {
+let firstNameCount = {}
+
+firstNameCount = presidentFirstName.reduce((nameCount, name) => {
     if (nameCount[name] === undefined) {
-      // name does not exist in presidentFirstNameObj
+      // name does not exist in presObj
       nameCount[name] = 1
     } else {
-      // when name already exists in presidentFirstNameObj
+      // when name already exists in presObj
       nameCount[name] += 1
     }
-
-    return nameCount
-  }, {})
-}
-// check to see if function works, it does
-// console.log(presidentFirstNameCounter())
-
-//create variable named firstNameCount
-const firstNameCount = presidentFirstNameCounter()
-
-console.log(firstNameCount)
-
+    return firstNameCount
+  })
+  console.log(firstNameCount)
 
 
 // Add your code above this line
